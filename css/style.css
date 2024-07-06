@@ -1,0 +1,205 @@
+/* Reset de Estilos */
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis de Cor */
+
+:root {
+  --dark-color: #000;
+}
+
+/* Estilos do Corpo (Body) */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Bebas Neue";
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #121212;
+  color: white;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+body.fade-in {
+  opacity: 0;
+  transition: opacity 0;
+}
+
+.navbar {
+  background-color: transparent;
+  position: fixed;
+  
+}
+/* Noite (Night) */
+
+.night {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  animation: gradient 400s ease infinite;
+  background-size: 300% 300%;
+  background-image: 
+    radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+    radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)),
+    repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px),
+    linear-gradient(90deg, #00fffa, #f0f0f0);
+}
+
+/* Animação de Gradiente (Keyframes) */
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Vídeo Oculto (Hidden Video) */
+
+.hidden-video {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Contêiner (Container) e Opções (Option Container) */
+
+.container-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  /* border: red solid 2px; */
+}
+
+.container-central {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  /* border: rgb(0, 255, 13) solid 1px; */
+}
+
+/* Botões (Button) e Cartões (Card) */
+
+.option {
+  margin: 10px;
+  transition: transform 0.2s, width 0.2s;
+  /* border: red solid 2px; */
+}
+
+.correct:hover {
+  transform: scale(1.5);
+}
+
+.movable {
+  position: absolute;
+  /* border: red solid 2px; */
+}
+
+.container-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  /* border: rgb(0, 247, 255) solid 2px; */
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 4px 8px #B24592;
+  border-radius: 10px;
+  /* border: red solid 2px; */
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  /* border: rgb(251, 255, 0) solid 2px; */
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  background-color: rgba(152, 26, 220, 0.422);
+  border-radius: 0 0 10px 10px;
+  /* border: rgb(43, 255, 0) solid 2px; */
+}
+
+
+@media (max-width: 992px) {
+  .container-central {
+    flex-direction: column;
+  }
+}
+
+/* Responsividade */
+
+@media (max-width: 1200px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-central {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-button {
+    font-size: 1.2rem;
+  }
+  .card-img-top {
+    height: 150px;
+  }
+  .container-central {
+    flex-direction: column;
+  }
+}
+
